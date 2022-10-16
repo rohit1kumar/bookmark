@@ -1,0 +1,7 @@
+        const ul = document.querySelector('.bookmarkList');
+            result[0].children.forEach((item) => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+                console.log(item);
+            });

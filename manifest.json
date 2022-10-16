@@ -1,0 +1,20 @@
+{
+    "name": "SharedBookmarks",
+    "description": "Sharing the bookmark becomes super easy.",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "bookmarks"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "icons/icon_16.png",
+        "32": "icons/icon_32.png",
+        "64": "icons/icon_64.png"
+    }
+}
