@@ -8,30 +8,44 @@ btnPush.addEventListener('click', async () => {
     //         console.log("added folder: " + newFolder.title);
     //     },
     // );
-    // chrome.bookmarks.create({
-    //     'parentId': '556',
-    //     'title': 'google',
-    //     'url': 'https://www.google.com',
-    // });
+
     async function getCurrentTab() {
         let queryOptions = { active: true, lastFocusedWindow: true };
         // `tab` will either be a `tabs.Tab` instance or `undefined`.
 
-        // let [tab] = await chrome.tabs.query(queryOptions);
-        console.log(await chrome.tabs.query(queryOptions));
-        // return tab;
+        let [tab] = await chrome.tabs.query(queryOptions);
+        console.log(tab);
+        console.log(tab.url);
+        return tab;
     }
-    getCurrentTab();
+    let tab = await getCurrentTab();
+
+    chrome.bookmarks.create({
+        'parentId': '164',
+        'title': `${tab.title}`,
+        'url': `${tab.url}`,
+    });
+
+    // async function getCurrentTab() {
+    //     let queryOptions = { active: true, lastFocusedWindow: true };
+    //     // `tab` will either be a `tabs.Tab` instance or `undefined`.
+
+    //     let [tab] = await chrome.tabs.query(queryOptions);
+    //     console.log(tab.url);
+
+    //     return tab.url;
+    // }
+})
     // get all bookmark
-    // chrome.bookmarks.getTree(
-    //     (result) => {
-    //         // console.log(result[0].children[0].children);
-    //         // result[0].children[0].children.forEach((item) => {
-    //         //     console.log(item.title);
-    //         // });
-    //         console.log(result);
-    //     });
-});
+//     chrome.bookmarks.getTree(
+//         (result) => {
+//             // console.log(result[0].children[0].children);
+//             // result[0].children[0].children.forEach((item) => {
+//             //     console.log(item.title);
+//             // });
+//             console.log(result);
+//         });
+// });
 /*
 id
 :
